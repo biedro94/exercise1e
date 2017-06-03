@@ -29,7 +29,11 @@ public class CalculatorUtilDivisionTest {
 	
 	@Test
 	public void test16dividedBy4() {
-		fail("Not yet implemented");
+		
+		doReturn(4.0).when(calculator).divide(16, 4);
+		String output = calcUtil.getDivisionText(16,4);		
+		assertEquals("16 / 4 = 4.0",output);
+		verify(calculator).divide(16, 4);
 	}		
 
 	@Test(expected=IllegalArgumentException.class)
